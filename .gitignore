@@ -1,0 +1,11 @@
+# zeusandatlas
+#-------------------------
+# PYTHON
+#-------------------------
+.ipynb_checkpoints/
+dist/
+*.egg-info/
+##------------------------
+# Visual Studio Code
+#-------------------------
+.vscode/
