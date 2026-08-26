@@ -1,0 +1,14 @@
+/home/arwen/zeusandatlas/zeusandatlas/target/release/deps/pyo3_build_config-8670ebed636b2931.d: /home/arwen/.cache/puccinialin/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.28.3/src/lib.rs /home/arwen/.cache/puccinialin/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.28.3/src/errors.rs /home/arwen/.cache/puccinialin/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.28.3/src/impl_.rs /home/arwen/zeusandatlas/zeusandatlas/target/release/build/pyo3-build-config-8a9c0e2a394b2e50/out/pyo3-build-config-file.txt /home/arwen/zeusandatlas/zeusandatlas/target/release/build/pyo3-build-config-8a9c0e2a394b2e50/out/pyo3-build-config.txt
+
+/home/arwen/zeusandatlas/zeusandatlas/target/release/deps/libpyo3_build_config-8670ebed636b2931.rlib: /home/arwen/.cache/puccinialin/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.28.3/src/lib.rs /home/arwen/.cache/puccinialin/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.28.3/src/errors.rs /home/arwen/.cache/puccinialin/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.28.3/src/impl_.rs /home/arwen/zeusandatlas/zeusandatlas/target/release/build/pyo3-build-config-8a9c0e2a394b2e50/out/pyo3-build-config-file.txt /home/arwen/zeusandatlas/zeusandatlas/target/release/build/pyo3-build-config-8a9c0e2a394b2e50/out/pyo3-build-config.txt
+
+/home/arwen/zeusandatlas/zeusandatlas/target/release/deps/libpyo3_build_config-8670ebed636b2931.rmeta: /home/arwen/.cache/puccinialin/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.28.3/src/lib.rs /home/arwen/.cache/puccinialin/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.28.3/src/errors.rs /home/arwen/.cache/puccinialin/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.28.3/src/impl_.rs /home/arwen/zeusandatlas/zeusandatlas/target/release/build/pyo3-build-config-8a9c0e2a394b2e50/out/pyo3-build-config-file.txt /home/arwen/zeusandatlas/zeusandatlas/target/release/build/pyo3-build-config-8a9c0e2a394b2e50/out/pyo3-build-config.txt
+
+/home/arwen/.cache/puccinialin/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.28.3/src/lib.rs:
+/home/arwen/.cache/puccinialin/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.28.3/src/errors.rs:
+/home/arwen/.cache/puccinialin/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.28.3/src/impl_.rs:
+/home/arwen/zeusandatlas/zeusandatlas/target/release/build/pyo3-build-config-8a9c0e2a394b2e50/out/pyo3-build-config-file.txt:
+/home/arwen/zeusandatlas/zeusandatlas/target/release/build/pyo3-build-config-8a9c0e2a394b2e50/out/pyo3-build-config.txt:
+
+# env-dep:CARGO_PKG_VERSION=0.28.3
+# env-dep:OUT_DIR=/home/arwen/zeusandatlas/zeusandatlas/target/release/build/pyo3-build-config-8a9c0e2a394b2e50/out
