@@ -226,3 +226,72 @@ class CauchyRegression:
         se = torch.sqrt(torch.diag(cov)).numpy()
         ci = np.column_stack([self.coef_ - z * se, self.coef_ + z * se])
         return ci, se
+
+
+class CauchyRegression:
+    """Multiple linear regression fit with the Cauchy loss, using PyTorch."""
+
+    def __init__(self, c=1.0, lr=0.05, epochs=3000, verbose=True):
+        self.c = c
+        self.lr = lr
+        self.epochs = epochs
+        self.verbose = verbose
+        self.loss_history = []
+        self.coef_ = None          # [w0, w1, ..., wp] in ORIGINAL units
+        self.final_loss_ = None
+
+    def _loss(self, y_hat, y):
+        r = (y - y_hat) / self.c
+        return (self.c ** 2 / 2 * torch.log1p(r ** 2)).mean()
+
+    def fit(self, X, y):
+        X = torch.tensor(np.asarray(X, dtype=np.float64))
+        y = torch.tensor(np.asarray(y, dtype=np.float64))
+
+        # standardize features
+        mu = X.mean(dim=0)
+        sigma = X.std(dim=0, correction=0)
+        Xs = (X - mu) / sigma
+
+        # parameters
+        w = torch.zeros(X.shape[1], dtype=X.dtype, requires_grad=True)
+        b = y.mean().clone().detach().requires_grad_(True)
+        opt = torch.optim.Adam([w, b], lr=self.lr)
+
+        self.loss_history = []
+        for epoch in range(self.epochs):
+            opt.zero_grad()
+            loss = self._loss(Xs @ w + b, y)
+            loss.backward()
+            opt.step()
+            self.loss_history.append(loss.item())
+            if self.verbose and epoch % 500 == 0:
+                print(f"epoch {epoch:5d}  loss {loss.item():.6f}")
+
+        # convert back to original units
+        w_orig = w.detach() / sigma
+        w0 = b.detach() - (w.detach() * mu / sigma).sum()
+        self.coef_ = torch.cat([w0.reshape(1), w_orig]).numpy()
+        self.final_loss_ = self.loss_history[-1]
+        return self
+
+    def predict(self, X):
+        X = np.asarray(X, dtype=np.float64)
+        return self.coef_[0] + X @ self.coef_[1:]
+
+    def confidence_intervals(self, X, y, z=1.96):
+        """Approximate 95% Wald intervals from the inverse Hessian of the Cauchy NLL."""
+        X = torch.tensor(np.asarray(X, dtype=np.float64))
+        y = torch.tensor(np.asarray(y, dtype=np.float64))
+        X1 = torch.cat([torch.ones(len(X), 1, dtype=X.dtype), X], dim=1)
+
+        def nll(theta):
+            r = (y - X1 @ theta) / self.c
+            return torch.log1p(r ** 2).sum()
+
+        theta = torch.tensor(self.coef_)
+        H = torch.autograd.functional.hessian(nll, theta)
+        cov = torch.linalg.inv(H)
+        se = torch.sqrt(torch.diag(cov)).numpy()
+        ci = np.column_stack([self.coef_ - z * se, self.coef_ + z * se])
+        return ci, se
